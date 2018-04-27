@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: WebClientCRUD
+Bundle-SymbolicName: WebClientCRUD
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: WebClientCRUD
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.swt;bundle-version="3.106.3"
