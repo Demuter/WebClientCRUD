@@ -6,3 +6,5 @@ Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: WebClientCRUD
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.swt;bundle-version="3.106.3"
+Bundle-ClassPath: .,
+ swing2swt.jar

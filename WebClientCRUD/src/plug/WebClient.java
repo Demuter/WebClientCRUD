@@ -4,9 +4,13 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ControlEvent;
+import org.eclipse.swt.events.ControlListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.widgets.Text;
+
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import web.LoadWeb;
@@ -16,6 +20,8 @@ import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.layout.RowData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.GridData;
 
 public class WebClient {
 
@@ -67,29 +73,33 @@ public class WebClient {
 		shlWebclientcrud.setText("WebClientCRUD");
 		shlWebclientcrud.setLayout(new FillLayout(SWT.HORIZONTAL));
 
-		Composite composite = new Composite(shlWebclientcrud, SWT.NONE);
-
 		String[] items = new String[] { "GET", "POST", "DEL" };
 
-		RowLayout rl_composite = new RowLayout(SWT.VERTICAL);
-		rl_composite.fill = true;
-		composite.setLayout(rl_composite);
+		final Composite composite = new Composite(shlWebclientcrud, SWT.NONE);
+		GridLayout gl_composite = new GridLayout(1, false);
+		composite.setLayout(gl_composite);
 
 		Combo combo = new Combo(composite, SWT.READ_ONLY);
+		combo.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+		combo.setListVisible(true);
 		combo.setItems(items);
 		combo.select(0);
 		combo.setText("GET");
 
 		textName = new Text(composite, SWT.BORDER);
+		textName.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		textName.setText("Enter name");
 
 		textNo = new Text(composite, SWT.BORDER);
+		textNo.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		textNo.setText("Enter number");
 
 		textPosit = new Text(composite, SWT.BORDER);
+		textPosit.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		textPosit.setText("Enter position");
 
 		Button buttonSent = new Button(composite, SWT.NONE);
+		buttonSent.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		buttonSent.setText("Sent");
 
 		textName.setEditable(false);
@@ -97,7 +107,7 @@ public class WebClient {
 		textPosit.setEditable(false);
 
 		text = new Text(composite, SWT.BORDER | SWT.READ_ONLY | SWT.H_SCROLL | SWT.V_SCROLL | SWT.CANCEL | SWT.MULTI);
-		text.setLayoutData(new RowData(398, 256));
+		text.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		text.setText(
 				"Hit the Send button to get a response. \r\nTo add an element, enter the name, number and position with a space. \r\nTo delete an item, enter a user number. ");
 
@@ -243,6 +253,7 @@ public class WebClient {
 
 			}
 		});
+
 	}
 
 }
